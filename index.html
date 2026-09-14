@@ -39,9 +39,17 @@
     max-width:480px;
     margin:0 auto;
     min-height:100vh;
-    background:var(--paper);
     display:flex;
     flex-direction:column;
+    position:relative;
+  }
+  .bg-deco{
+    position:fixed;
+    pointer-events:none;
+    opacity:0.16;
+    z-index:-1;
+    user-select:none;
+    line-height:1;
   }
 
   /* 동물의 숲 스타일 헤더 */
@@ -100,7 +108,9 @@
     background:var(--white);
     cursor:pointer;
     color:var(--ink);
+    transition:transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+  .chip:active{ transform:scale(0.9); }
   .chip.active{
     background:var(--teal);
     color:var(--white);
@@ -131,7 +141,9 @@
     background:none;
     border-left:none;border-right:none;border-top:none;
     font-family:'Gowun Dodum', sans-serif;
+    transition:transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s;
   }
+  .tab:active{ transform:scale(0.92); }
   .tab.active{
     opacity:1;
     border-bottom:3px solid var(--amber);
@@ -232,12 +244,13 @@
     font-weight:700;
     cursor:pointer;
     font-family:'Gowun Dodum', sans-serif;
+    transition:transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.15s;
   }
   .btn-know{ background:var(--green); color:var(--white); }
   .btn-again{ background:var(--coral); color:var(--white); }
   .btn-primary{ background:var(--teal-deep); color:var(--white); }
   .btn-ghost{ background:var(--white); color:var(--ink); border:1.5px solid var(--line); }
-  .btn:active{ opacity:0.85; }
+  .btn:active{ opacity:0.9; transform:scale(0.9); }
   .btn.listening{ animation: micPulse 1.2s infinite; }
   @keyframes micPulse{
     0%{ box-shadow:0 0 0 0 rgba(232,131,107,0.5); }
@@ -293,7 +306,9 @@
     font-family:'Gowun Dodum', sans-serif;
     cursor:pointer;
     color:var(--ink);
+    transition:transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+  .option:active:not(:disabled){ transform:scale(0.97); }
   .option.correct{ border-color:var(--green); background:#EAF4EE; }
   .option.wrong{ border-color:var(--coral); background:#FBEBE7; }
   .option:disabled{ cursor:default; }
@@ -403,6 +418,11 @@
 </style>
 </head>
 <body>
+<div class="bg-deco" style="top:6%; left:3%; font-size:46px;">🍃</div>
+<div class="bg-deco" style="top:16%; right:2%; font-size:54px;">☁️</div>
+<div class="bg-deco" style="bottom:22%; left:2%; font-size:50px;">🌿</div>
+<div class="bg-deco" style="bottom:8%; right:5%; font-size:42px;">☁️</div>
+<div class="bg-deco" style="top:48%; right:-2%; font-size:38px;">🍀</div>
 <div class="app">
   <div class="board">
     <p class="board-title">🦊 가족 영어 학습장</p>
